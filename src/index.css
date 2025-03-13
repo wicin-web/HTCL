@@ -1,0 +1,174 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 40% 98%;
+    --foreground: 210 40% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 210 40% 14%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 40% 12%;
+
+    --primary: 210 100% 50%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 10% 94%;
+    --secondary-foreground: 210 40% 16%;
+
+    --muted: 210 10% 92%;
+    --muted-foreground: 210 10% 40%;
+
+    --accent: 210 10% 92%;
+    --accent-foreground: 210 40% 12%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 210 20% 86%;
+    --input: 210 20% 86%;
+    --ring: 210 100% 50%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 210 40% 98%;
+    --sidebar-foreground: 210 40% 16%;
+    --sidebar-primary: 210 100% 50%;
+    --sidebar-primary-foreground: 210 40% 98%;
+    --sidebar-accent: 210 10% 92%;
+    --sidebar-accent-foreground: 210 40% 12%;
+    --sidebar-border: 210 20% 86%;
+    --sidebar-ring: 210 100% 50%;
+  }
+
+  .dark {
+    --background: 210 40% 8%;
+    --foreground: 210 20% 98%;
+
+    --card: 210 40% 10%;
+    --card-foreground: 210 20% 98%;
+
+    --popover: 210 40% 10%;
+    --popover-foreground: 210 20% 98%;
+
+    --primary: 210 100% 50%;
+    --primary-foreground: 210 20% 98%;
+
+    --secondary: 210 10% 16%;
+    --secondary-foreground: 210 20% 98%;
+
+    --muted: 210 10% 16%;
+    --muted-foreground: 210 10% 70%;
+
+    --accent: 210 10% 16%;
+    --accent-foreground: 210 20% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 20% 98%;
+
+    --border: 210 20% 22%;
+    --input: 210 20% 22%;
+    --ring: 210 100% 50%;
+
+    --sidebar-background: 210 40% 10%;
+    --sidebar-foreground: 210 20% 98%;
+    --sidebar-primary: 210 100% 50%;
+    --sidebar-primary-foreground: 210 20% 98%;
+    --sidebar-accent: 210 10% 16%;
+    --sidebar-accent-foreground: 210 20% 98%;
+    --sidebar-border: 210 20% 22%;
+    --sidebar-ring: 210 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  pre, code {
+    @apply font-mono;
+  }
+}
+
+/* Fancy blur effect for background elements */
+.glass {
+  @apply bg-white/70 dark:bg-slate-900/70 backdrop-blur-lg backdrop-saturate-150 border border-white/20 dark:border-slate-800/20;
+}
+
+.glass-card {
+  @apply glass shadow-md shadow-black/5 dark:shadow-black/20;
+}
+
+/* Animation classes */
+.animate-delay-100 {
+  animation-delay: 100ms;
+}
+
+.animate-delay-200 {
+  animation-delay: 200ms;
+}
+
+.animate-delay-300 {
+  animation-delay: 300ms;
+}
+
+.animate-delay-400 {
+  animation-delay: 400ms;
+}
+
+.animate-delay-500 {
+  animation-delay: 500ms;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-muted rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-muted-foreground/30;
+}
+
+/* Code editor specific styles */
+.editor-wrapper {
+  @apply relative rounded-lg overflow-hidden border shadow-sm;
+}
+
+.token-comment {
+  @apply text-muted-foreground;
+}
+
+.token-string {
+  @apply text-green-600 dark:text-green-400;
+}
+
+.token-keyword {
+  @apply text-blue-600 dark:text-blue-400;
+}
+
+.token-operator {
+  @apply text-violet-600 dark:text-violet-400;
+}
+
+.code-output {
+  @apply font-mono text-sm p-4 bg-muted/50 rounded-lg border max-h-48 overflow-y-auto;
+}
